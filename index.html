@@ -139,6 +139,55 @@
       pointer-events: none;
     }
   </style>
+    #emotionButton {
+      position: fixed;
+      top: 58px;
+      right: 12px;
+      z-index: 6;
+      padding: 10px 12px;
+      border: 0;
+      border-radius: 12px;
+      color: white;
+      background: rgba(24, 18, 42, 0.82);
+      font-size: 13px;
+    }
+
+    #emotionPanel {
+      position: fixed;
+      top: 110px;
+      right: 12px;
+      z-index: 10;
+      display: none;
+      width: 170px;
+      padding: 16px;
+      border-radius: 16px;
+      color: white;
+      background: rgba(24, 18, 42, 0.94);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    #emotionPanel h2 {
+      margin: 0 0 12px;
+      font-size: 17px;
+    }
+
+    #emotionPanel ul {
+      margin: 0;
+      padding-left: 22px;
+      line-height: 2;
+      font-size: 15px;
+    }
+
+    #closeEmotion {
+      width: 100%;
+      margin-top: 12px;
+      padding: 8px;
+      border: 0;
+      border-radius: 9px;
+      color: white;
+      background: rgba(130, 94, 180, 0.9);
+    }
+
 
 <script type="importmap">
 {
@@ -163,6 +212,21 @@ s</head>
   </div>
 
   <button id="reset" type="button">처음 위치</button>
+  <button id="emotionButton" type="button">감정 목록</button>
+
+  <div id="emotionPanel">
+    <h2>감정 목록</h2>
+    <ul>
+      <li>기쁨</li>
+      <li>슬픔</li>
+      <li>분노</li>
+      <li>불안</li>
+      <li>호기심</li>
+    </ul>
+    <button id="closeEmotion" type="button">닫기</button>
+  </div>
+
+
 
   <div id="lookArea"></div>
 
@@ -411,6 +475,18 @@ s</head>
       camera.position.copy(startPosition);
       yaw = 0;
       pitch = 0;
+    });
+
+    const emotionButton = document.getElementById("emotionButton");
+    const emotionPanel = document.getElementById("emotionPanel");
+    const closeEmotion = document.getElementById("closeEmotion");
+
+    emotionButton.addEventListener("click", () => {
+      emotionPanel.style.display = "block";
+    });
+
+    closeEmotion.addEventListener("click", () => {
+      emotionPanel.style.display = "none";
     });
 
     // -----------------------------
