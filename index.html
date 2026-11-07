@@ -154,7 +154,7 @@ s</head>
     <h1>감성 도서관</h1>
     <p>디지털 공간을 불러오는 중입니다.</p>
     <p id="progress">0%</p>
-    <p id="error"></p>
+    <p ifd="error"></p>
   </div>
 
   <div id="info">
@@ -266,11 +266,7 @@ s</head>
         const modelHeight = Math.max(size.y, 1);
 
         // 모델의 크기에 맞춰 눈높이와 이동속도를 자동으로 정함
-        eyeHeight = THREE.MathUtils.clamp(
-          modelHeight * 0.08,
-          modelHeight * 0.02,
-          modelHeight * 0.15
-        );
+        eyeHeight =1.6;
 
         walkSpeed = Math.max(modelHeight * 0.004, 0.02);
 
