@@ -139,7 +139,15 @@
       pointer-events: none;
     }
   </style>
-</head>
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js"
+  }
+}
+</script>
+s</head>
 
 <body>
   <div id="loading">
@@ -237,7 +245,7 @@
     loader.load(
       "./optimized2.glb",
 
-      (gltf) => {
+      (gltf) => {		
         model = gltf.scene;
         scene.add(model);
 
